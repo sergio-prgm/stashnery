@@ -12,9 +12,9 @@
 </template>
 
 <script lang="ts" setup>
-import HeaderComponent from '~~/components/header.vue';
-import FooterComponent from '~~/components/footer.vue';
-import SearchbarComponent from '~~/components/searchbar.vue';
+import HeaderComponent from '~/components/Header.vue';
+import FooterComponent from '~/components/Footer.vue';
+import SearchbarComponent from '~/components/Searchbar.vue';
 </script>
 
 <style >

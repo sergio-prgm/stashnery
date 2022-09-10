@@ -12,8 +12,8 @@
 </template>
 
 <script lang="ts" setup>
-import HeaderComponent from '~~/components/header.vue';
-import FooterComponent from '~~/components/footer.vue';
+import HeaderComponent from '~/components/Header.vue';
+import FooterComponent from '~/components/Footer.vue';
 
 </script>
 
