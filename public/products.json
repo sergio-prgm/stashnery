@@ -19,6 +19,16 @@
       {
         "state": "pending"
       }
+  },
+  {
+    "name": "Clear Pencil Case",
+    "price": 12.99,
+    "description": "Simple and elegant clear case to store your most precious writing instruments.",
+    "image": "some/path",
+    "availability": 
+      {
+        "state": "out-of-stock"
+      }
   }
 
 ]
