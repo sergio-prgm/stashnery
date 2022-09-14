@@ -1,34 +1,115 @@
-[
-  {
-    "name": "Standard Journal",
-    "price": 12.99,
-    "description": "Great quality materials and basic features for managing your busy life.",
-    "image": "some/path",
-    "availability": 
-      {
-        "state": "in-stock",
-        "items-left": 23
-      }
+{
+  "codeToName": {
+    "journal": {
+      "color": [
+        {"K": "black"},
+        {"G": "gray"},
+        {"N": "navy"}
+      ],
+      "size": [
+        {"M": "A5"},
+        {"S": "A6"},
+        {"L": "A4"}
+      ]
+    },
+    "case": {
+      "color": [
+        {"K": "black"},
+        {"W": "white"}
+      ],
+      "size": [
+        {"L": "large"},
+        {"M": "medium"},
+        {"S": "small"}
+      ]
+    }
   },
-  {
-    "name": "Premium Journal",
-    "price": 20.99,
-    "description": "The best mateials and all of the features for all the power self improvers out there.",
-    "image": "some/path",
-    "availability": 
-      {
-        "state": "pending"
-      }
-  },
-  {
-    "name": "Clear Pencil Case",
-    "price": 12.99,
-    "description": "Simple and elegant clear case to store your most precious writing instruments.",
-    "image": "some/path",
-    "availability": 
-      {
-        "state": "out-of-stock"
-      }
-  }
-
-]
+  "products": [
+    {
+      "name": "Standard Journal",
+      "category": "journal",
+      "id": "SJ",
+      "price": 12.99,
+      "description": "Great quality materials and basic features for managing your busy life.",
+      "image": "some/path",
+      "availability": 
+        {
+          "state": "in-stock",
+          "items-left": 23
+        },
+      "variations": {
+        "color": ["K", "G", "N"],
+        "size": ["M", "S"]
+      },
+      "items": [
+        {"code": "KM", "amount": 22},
+        {"code": "KS", "amount": 4},
+        {"code": "GM", "amount": 12},
+        {"code": "GS", "amount": 0},
+        {"code": "NM", "amount": 27},
+        {"code": "NS", "amount": -1}
+      ]
+    },
+    {
+      "name": "Jumbo Journal",
+      "category": "journal",
+      "id": "JJ",
+      "price": 16.99,
+      "description": "The same great quality as out best seller Standard Journal but with twice the pages",
+      "image": "some/path",
+      "availability": 
+        {
+          "state": "in-stock",
+          "items-left": 23
+        },
+      "variations": {
+        "color": ["K", "G"],
+        "size": ["M"]
+      },
+      "items": [
+        {"code": "KM", "amount": -1},
+        {"code": "GM", "amount": -2}
+      ]
+    },
+    {
+      "name": "Premium Journal",
+      "category": "journal",
+      "id": "PJ",
+      "price": 20.99,
+      "description": "The best mateials and all of the features for all the power self improvers out there.",
+      "image": "some/path",
+      "availability": 
+        {
+          "state": "pending"
+        },
+      "variations": {
+        "color": ["K", "N"],
+        "size": ["M"]
+      },
+      "items": [
+        {"code": "KM", "amount": 14},
+        {"code": "NM", "amount": 5}
+      ]
+    },
+    {
+      "name": "Clear Pencil Case",
+      "category": "case",
+      "id": "CC",
+      "price": 12.99,
+      "description": "Simple and elegant clear case to store your most precious writing instruments.",
+      "image": "some/path",
+      "availability": 
+        {
+          "state": "out-of-stock"
+        },
+      "variations": {
+        "color": ["K", "W"],
+        "size": ["M"]
+      },
+      "items": [
+        {"code": "KM", "amount": 23},
+        {"code": "WM", "amount": 7}
+      ]
+    }
+  ]
+}
