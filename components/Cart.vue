@@ -2,11 +2,28 @@
 watchSmn()
 const open = ref(false)
 
+watch(() => useStore().value.length, (val, oldVal) => {
+  if (val > oldVal) open.value = !open.value
+})
+
+defineProps({
+  showCount: {
+    required: false,
+    type: Boolean
+  }
+})
+
 const buttonStyles = 'py-1 px-2 bg-grey-100 font-semibold block'
 </script>
 
 <template>
-  <button @click="open = !open" class="font-bold text-xl">Cart</button>
+  <button @click="open = !open" class="">Cart
+    <span v-if="showCount" class="inline-block">
+      <span class="text-sm font-sans leading-3 px-2 border-2 border-green-500 text-green-500 rounded-full flex items-center justify-center w-4 aspect-square">
+        {{ useStore().value.length }}
+      </span>
+    </span>
+  </button>
   <ClientOnly>
     <Teleport to="body">
       <div v-show="open" @click.self="open = false" class="bg-slate-700/70  overflow-hidden backdrop-blur-sm w-full z-10 inset-0 absolute">
@@ -22,7 +39,7 @@ const buttonStyles = 'py-1 px-2 bg-grey-100 font-semibold block'
         <button @click="open = !open" 
           class="font-bold text-3xl relative block -top-2">&times;</button>
         <div v-for="{name, price, quantity} in useStore().value" class="text-gray-100">
-          <NuxtLink :to="`/product/${ name }`"><h3>{{ name }}</h3></NuxtLink>
+          <NuxtLink :to="`/product/${ name }`" ><h3>{{ name }}</h3></NuxtLink>
           <small>Price: {{ price }}</small>
           <button :class="buttonStyles" @click="removeProduct(name)">DELETE</button>
           <div class="flex justify-between">
