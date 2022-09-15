@@ -23,6 +23,7 @@ const imgPos = computed(() => absImgPos.value % (imgArr.length))
 </script>
 
 <template>
+<div>
 <h1 class="">{{ product.name}}</h1>
 <p>{{ product.description }}</p>
 <div
@@ -56,5 +57,6 @@ const imgPos = computed(() => absImgPos.value % (imgArr.length))
   <button @click="absImgPos--" class="font-black text-xl">&lt;</button>
   <span>{{ imgPos }}</span>
   <button @click="absImgPos++" class="font-black text-xl">></button>
+</div>
 </div>
 </template>
