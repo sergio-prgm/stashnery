@@ -2,7 +2,7 @@
 watchSmn()
 const open = ref(false)
 
-const buttonStyles = 'py-2 px-3 bg-grey-100 font-semibold block'
+const buttonStyles = 'py-1 px-2 bg-grey-100 font-semibold block'
 </script>
 
 <template>
@@ -21,14 +21,20 @@ const buttonStyles = 'py-2 px-3 bg-grey-100 font-semibold block'
           class="w-72 top-0 right-0 fixed shadow-2xl z-40 text-white h-full p-4 overflow-hidden bg-green-600">
         <button @click="open = !open" 
           class="font-bold text-3xl relative block -top-2">&times;</button>
-        <div v-for="{name, price, quantity} in useStore().value" class="text-blue-400">
-          <h3>{{ name }}</h3>
+        <div v-for="{name, price, quantity} in useStore().value" class="text-gray-100">
+          <NuxtLink :to="`/product/${ name }`"><h3>{{ name }}</h3></NuxtLink>
           <small>Price: {{ price }}</small>
-          <small class="ml-4">Quantity: {{ quantity }}</small>
           <button :class="buttonStyles" @click="removeProduct(name)">DELETE</button>
-          <button :class="buttonStyles" @click="increaseQuantity(name)">+</button>
+          <div class="flex justify-between">
+            <div class="flex justify-between w-24 items-baseline">
+              <button class="px-2 font-bold text-xl" @click="decreaseQuantity(name)">-</button>
+              <p class="">{{ quantity }}</p>
+              <button class="px-2 font-bold text-xl" @click="increaseQuantity(name)">+</button>
+            </div>
+            <p class="text-lg font-medium">{{ totalProd(name) }}€</p>
+          </div>
         </div>
-        <strong>Total: 49.99</strong>
+        <strong>Total: {{ totalCart() }}€</strong>
         </aside>
       </Transition>
       </div>
