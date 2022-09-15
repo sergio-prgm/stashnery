@@ -31,7 +31,10 @@
       "id": "SJ",
       "price": 12.99,
       "description": "Great quality materials and basic features for managing your busy life.",
-      "image": "some/path",
+      "images": {
+        "main": "/public/img/basic-front.webp",
+        "detail": "/public/img/basic-inside.webp"
+      },
       "availability": 
         {
           "state": "in-stock",
@@ -56,7 +59,11 @@
       "id": "JJ",
       "price": 16.99,
       "description": "The same great quality as out best seller Standard Journal but with twice the pages",
-      "image": "some/path",
+      "images": {
+        "main": "/public/img/plain-front.webp",
+        "detail": "/public/img/plain-inside.webp",
+        "extra": "/public/img/plain-first.webp"
+      },
       "availability": 
         {
           "state": "in-stock",
@@ -77,7 +84,10 @@
       "id": "PJ",
       "price": 20.99,
       "description": "The best mateials and all of the features for all the power self improvers out there.",
-      "image": "some/path",
+      "images": {
+        "main": "/public/img/colorblock-front.webp",
+        "detail": "/public/img/colorblock-inside.webp"
+      },
       "availability": 
         {
           "state": "pending"
@@ -97,7 +107,10 @@
       "id": "CC",
       "price": 12.99,
       "description": "Simple and elegant clear case to store your most precious writing instruments.",
-      "image": "some/path",
+      "images": {
+        "main": "/public/img/open-cpc.webp",
+        "detail": "/public/img/close-cpc.webp"
+      },
       "availability": 
         {
           "state": "out-of-stock"
