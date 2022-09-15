@@ -1,26 +1,13 @@
 <script lang="ts" setup>
 const route = useRoute()
 
-interface Product {
-  name: string
-  price: number
-  description: string
-  image: string
-  availability: {
-    state: 'in-stock' | 'pending' | 'out-of-stock',
-    'items-left'?: number 
-  }
-  variations: {color: Array<string>, size: Array<string>}
-  items: Array<{code: string, amount: number}>
-}
-
 const name = ref(route.params.name)
 
 const { data: product } = await useFetch(`/api/product/${name.value}`, {
   key: name.value.toString()
 })
 
-console.log(product.value.name)
+const quantity = ref(1)
 
 const colorTranslation = {
   "K": "bg-black hover:bg-gray-900",
@@ -29,11 +16,33 @@ const colorTranslation = {
   "W": "bg-gray-50 hover:bg-white"
 }
 
+const absImgPos = ref(0)
+const imgArr = Object.keys(product.value.images)
+const imgPos = computed(() => absImgPos.value % (imgArr.length))
+
 </script>
 
 <template>
 <h1 class="">{{ product.name}}</h1>
 <p>{{ product.description }}</p>
+<div
+    v-if="!useStore().value.some(prod => prod.name === product.name)"
+ >
+  <div class="flex justify-between w-20 items-baseline">
+    <button @click="quantity > 1 && quantity--" class="font-black text-xl">-</button>
+    <span>{{ quantity }}</span>
+    <button @click="quantity++" class="font-black text-xl">+</button>
+  </div>
+  <button 
+    class="block font-bold "
+    @click="() => {
+      addProduct({ name: product.name, price: product.price, quantity: quantity })
+    }"
+  >
+    Add to cart
+  </button>
+  </div>
+  <p v-else >Already added to cart. Visit <Cart /> to make changes</p>
 <ul class="flex gap-2">
   <li v-for="color in product.variations.color" 
     :class="colorTranslation[color as keyof typeof colorTranslation]"
@@ -42,4 +51,10 @@ const colorTranslation = {
     >
     {{ color }}</li>
 </ul>
+<img :src="product.images[imgArr[imgPos] as keyof object]" />
+<div class="flex justify-between">
+  <button @click="absImgPos--" class="font-black text-xl">&lt;</button>
+  <span>{{ imgPos }}</span>
+  <button @click="absImgPos++" class="font-black text-xl">></button>
+</div>
 </template>

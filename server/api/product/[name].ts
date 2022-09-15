@@ -6,7 +6,11 @@ interface ProductDB {
   id: string
   price: number
   description: string
-  image: string
+  images: {
+    main?: string
+    detail?: string
+    extra?: string
+  }
   availability: {
     state: 'in-stock' | 'pending' | 'out-of-stock',
     'items-left'?: number 
