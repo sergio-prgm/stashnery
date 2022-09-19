@@ -1,5 +1,5 @@
-import { readFileSync, readdirSync} from 'fs'
-import product from './products'
+// import { readFileSync, readdirSync} from 'fs'
+import productdb from './productdb'
 
 interface ProductDB {
   name: string
@@ -11,10 +11,6 @@ interface ProductDB {
     main?: string
     detail?: string
     extra?: string
-  }
-  availability: {
-    state: 'in-stock' | 'pending' | 'out-of-stock',
-    'items-left'?: number 
   }
   variations: {color: Array<string>, size: Array<string>}
   items: Array<{code: string, amount: number}>
@@ -34,10 +30,6 @@ const data: ProductDB[] = [{
     "color": ["K", "N"],
     "size": ["M"]
   },
-  availability: {
-    state: 'in-stock',
-    "items-left": 23
-  },
   "items": [
     {"code": "KM", "amount": 14},
     {"code": "NM", "amount": 5}
@@ -46,18 +38,18 @@ const data: ProductDB[] = [{
 
 export default defineEventHandler((event) => {
   // const data = readFileSync('./public/products.json', 'utf8')
-  const logogo = readdirSync('../')
-  const logo = readdirSync('./')
+  // const {products, codeToName}: {products: ProductDB[], codeToName: object} = JSON.parse(data)
+
+  console.log('vvvv DATA vvv')
+  console.log('---------------------------------------')
+
+  const { products } = productdb
+
 
   try {
-    console.log(product)
+    return products as ProductDB[]
   } catch (error) {
-    console.log(error)
+    console.error(error) 
+    return data
   }
-  // const {products, codeToName}: {products: ProductDB[], codeToName: object} = JSON.parse(data)
-  // console.log('vvvv DATA vvv')
-  // console.log('---------------------------------------')
-  console.log({parent: logogo, child: logo})
-
-  return data
 })

@@ -10,10 +10,6 @@ interface Product {
     detail?: string
     extra?: string
   }
-  availability: {
-    state: 'in-stock' | 'pending' | 'out-of-stock',
-    'items-left'?: number 
-  }
   items: Array<{code: string, amount: number}>
 }
 
@@ -23,7 +19,6 @@ const props = defineProps({
     required: true
   }
 })
-console.log(props.product.images)
 const availStyle = {
   'in-stock': 'text-green-500',
   'out-of-stock': 'text-red-600',

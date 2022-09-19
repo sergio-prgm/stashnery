@@ -59,7 +59,7 @@ const imgPos = computed(() => Math.abs(absImgPos.value % (imgArr.length)))
 <img :src="product.images[imgArr[imgPos] as keyof object]" />
 <div class="flex justify-between pt-3 max-w-xs mx-auto">
   <button @click="absImgPos--" class="font-normal hover:text-green-500 hover:font-bold text-xl font-[Muli]">&lt;</button>
-  <span class="font-[Muli]">{{ imgPos }}</span>
+  <span class="font-[Muli]">{{ imgPos + 1 }}</span>
   <button @click="absImgPos++" class="font-normal hover:text-green-500 hover:font-bold text-xl font-[Muli]">></button>
 </div>
 </div>
