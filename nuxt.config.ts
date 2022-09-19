@@ -11,5 +11,10 @@ export default defineNuxtConfig({
   ],
   css: [
     '@/assets/css/main.css'
-  ]
+  ],
+  meta: {
+    link: [
+      {rel: 'icon', type: 'image/x-icon', href: '/public/logo/Sudoku_Logo_Full.svg'}
+    ]
+  }
 })
