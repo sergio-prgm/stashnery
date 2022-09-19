@@ -19,19 +19,39 @@ interface ProductDB {
   items: Array<{code: string, amount: number}>
 }
 
-// interface Product extends ProductDB {
-
-// }
+const data: ProductDB[] = [{
+  "name": "Premium Journal",
+  "category": "journal",
+  "id": "PJ",
+  "price": 22.99,
+  "description": "The best materials and all of the features for all the power self improvers out there.",
+  "images": {
+    "main": "/img/colorblock-front.webp",
+    "detail": "/img/colorblock-inside.webp"
+  },
+  "variations": {
+    "color": ["K", "N"],
+    "size": ["M"]
+  },
+  availability: {
+    state: 'in-stock',
+    "items-left": 23
+  },
+  "items": [
+    {"code": "KM", "amount": 14},
+    {"code": "NM", "amount": 5}
+  ]
+}]
 
 export default defineEventHandler((event) => {
-  const data = readFileSync('./public/products.json', 'utf8')
+  // const data = readFileSync('./public/products.json', 'utf8')
   const logogo = readdirSync('./')
 
-  const {products, codeToName}: {products: ProductDB[], codeToName: object} = JSON.parse(data)
+  // const {products, codeToName}: {products: ProductDB[], codeToName: object} = JSON.parse(data)
   // console.log('vvvv DATA vvv')
   // console.log('---------------------------------------')
-  console.log(logogo)
+  console.log('THE DIRS', logogo)
 
 
-  return products
+  return data
 })
