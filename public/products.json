@@ -15,12 +15,20 @@
     "case": {
       "color": [
         {"K": "black"},
-        {"W": "white"}
+        {"W": "white"},
+        {"S": "silver"}
       ],
       "size": [
         {"L": "large"},
         {"M": "medium"},
         {"S": "small"}
+      ]
+    },
+    "pen": {
+      "color": [
+        {"K": "black"},
+        {"B": "blue"},
+        {"BK": "blue-black"}
       ]
     }
   },
@@ -58,7 +66,7 @@
       "category": "journal",
       "id": "JJ",
       "price": 16.99,
-      "description": "The same great quality as out best seller Standard Journal but with twice the pages",
+      "description": "The same great quality as our best seller Standard Journal but with twice the pages",
       "images": {
         "main": "/img/plain-front.webp",
         "detail": "/img/plain-inside.webp",
@@ -82,8 +90,8 @@
       "name": "Premium Journal",
       "category": "journal",
       "id": "PJ",
-      "price": 20.99,
-      "description": "The best mateials and all of the features for all the power self improvers out there.",
+      "price": 22.99,
+      "description": "The best materials and all of the features for all the power self improvers out there.",
       "images": {
         "main": "/img/colorblock-front.webp",
         "detail": "/img/colorblock-inside.webp"
@@ -102,26 +110,101 @@
       ]
     },
     {
+      "name": "Spiral Journal",
+      "category": "journal",
+      "id": "SJ",
+      "price": 20.99,
+      "description": "Comfortable and versatile writing experience. It packs all the features and the most important of them all: spine-crack-free state of mind.",
+      "images": {
+        "main": "/img/spiral-front.webp",
+        "detail": "/img/spiral-inside.webp",
+        "extra": "/img/spiral-first.webp"
+      },
+      "availability": 
+        {
+          "state": "pending"
+        },
+      "variations": {
+        "color": ["K", "N"],
+        "size": ["M"]
+      },
+      "items": [
+        {"code": "KM", "amount": 14},
+        {"code": "NM", "amount": 5}
+      ]
+    },
+    {
+      "name": "Aluminum Pencil Case",
+      "category": "case",
+      "id": "AC",
+      "price": 18.99,
+      "description": "The most durable case we offer. Anodized aluminum body that can fit all the essential writing utensils you'll ever need.",
+      "images": {
+        "main": "/img/open-alpc.webp",
+        "detail": "/img/close-alpc.webp"
+      },
+      "variations": {
+        "color": ["S"],
+        "size": ["M"]
+      },
+      "items": [
+        {"code": "SM", "amount": 3}
+      ]
+    },
+    {
       "name": "Clear Pencil Case",
       "category": "case",
       "id": "CC",
-      "price": 12.99,
-      "description": "Simple and elegant clear case to store your most precious writing instruments.",
+      "price": 14.99,
+      "description": "Minimal, inspiring, elegant. For all the writing utensil voyeurs and the organization freaks. The best seller clear pen case that you must have.",
       "images": {
         "main": "/img/open-cpc.webp",
         "detail": "/img/close-cpc.webp"
       },
-      "availability": 
-        {
-          "state": "out-of-stock"
-        },
       "variations": {
-        "color": ["K", "W"],
+        "color": ["S"],
         "size": ["M"]
       },
       "items": [
+        {"code": "SM", "amount": 3}
+      ]
+    },
+    {
+      "name": "Black Clear Pen",
+      "category": "pen",
+      "id": "BCP",
+      "price": 1.79,
+      "description": "Minimalist yet ergonomic gel ink pen with great writing properties and feel. No bleed-through, smooth experience.",
+      "images": {
+        "main": "/img/kpen-front.webp",
+        "detail": "/img/kpen-detail.webp"
+      },
+      "variations": {
+        "color": ["K"],
+        "size": ["M", "L"]
+      },
+      "items": [
         {"code": "KM", "amount": 23},
-        {"code": "WM", "amount": 7}
+        {"code": "KL", "amount": 34}
+      ]
+    },
+    {
+      "name": "Aluminum Fountain Pen",
+      "category": "pen",
+      "id": "FP",
+      "price": 18.99,
+      "description": "The most elegant writing tool. Completely cylindrical and smooth aluminum pen body with subtle knurling around the grip area. Only available with a medium size nib. Comes with a pack of 5 ink cartridges.",
+      "images": {
+        "main": "/img/fount-front.webp",
+        "detail": "/img/fount-detail.webp"
+      },
+      "variations": {
+        "color": ["K", "BK"],
+        "size": ["M"]
+      },
+      "items": [
+        {"code": "KM", "amount": 0},
+        {"code": "BKM", "amount": 0}
       ]
     }
   ]
