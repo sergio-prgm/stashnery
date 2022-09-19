@@ -1,4 +1,5 @@
 import { readFileSync, readdirSync} from 'fs'
+import product from './products'
 
 interface ProductDB {
   name: string
@@ -49,8 +50,7 @@ export default defineEventHandler((event) => {
   const logo = readdirSync('./')
 
   try {
-    const gol = readFileSync('../public/products.json', 'utf8')
-    console.log('read .. dir', gol)
+    console.log(product)
   } catch (error) {
     console.log(error)
   }
