@@ -5,16 +5,10 @@ definePageMeta({
 })
 
 </script>
+https://demo.vercel.store/es
 
 <template>
-  <div>
-      <article>
-        <h3>Otor article</h3>
-        <p>ipsumete ipsum etc.</p>
-      </article>
-      <article>
-        <h3>Un article</h3>
-        <p>Lorem ipsum etc.</p>
-      </article>
-  </div>
+  <h1>Welcome to Stash: stationery etc.</h1>
+  <p>Visit <nuxt-link to="/shop" class="text-green-400 hover:text-green-500">the shop</nuxt-link> to see all the items we have in store for you.</p>
+  <p>Have fun!!</p>
 </template>
