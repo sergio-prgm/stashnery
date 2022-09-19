@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   ],
   meta: {
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/public/logo/Sudoku_Logo_Full.svg'}
+      {rel: 'icon', type: 'image/x-icon', href: '/logo/Stash_Logo_Full.svg'}
     ]
   }
 })

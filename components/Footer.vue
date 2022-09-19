@@ -4,10 +4,10 @@
 
 <template>
 
-<footer class="p-4 w-screen bg-white shadow md:px-6 md:py-8 dark:bg-gray-900">
+<footer class=" w-full py-4 bg-white md:px-6 md:py-8 dark:bg-gray-900">
   <div class="sm:flex sm:items-center sm:justify-between">
     <div class="flex items-center mb-4 sm:mb-0">
-      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Stashnery</span>
+      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><img src="/logo/Stash_Logo_Full.svg" alt="Stash Logo" class="h-8" /></span>
     </div>
     <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
       <li>
@@ -15,6 +15,9 @@
       </li>
       <li>
         <NuxtLink href="/about" class="mr-4 hover:underline md:mr-6 ">About</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink href="/shipping" class="mr-4 hover:underline md:mr-6 ">Shipping</NuxtLink>
       </li>
     </ul>
   </div>
