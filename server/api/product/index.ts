@@ -45,13 +45,19 @@ const data: ProductDB[] = [{
 
 export default defineEventHandler((event) => {
   // const data = readFileSync('./public/products.json', 'utf8')
-  const logogo = readdirSync('./')
+  const logogo = readdirSync('../')
+  const logo = readdirSync('./')
 
+  try {
+    const gol = readFileSync('../public/products.json', 'utf8')
+    console.log('read .. dir', gol)
+  } catch (error) {
+    console.log(error)
+  }
   // const {products, codeToName}: {products: ProductDB[], codeToName: object} = JSON.parse(data)
   // console.log('vvvv DATA vvv')
   // console.log('---------------------------------------')
-  console.log('THE DIRS', logogo)
-
+  console.log({parent: logogo, child: logo})
 
   return data
 })
