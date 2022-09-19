@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: BodoniModa, serif
+  }
+}
+
 @font-face {
   font-family: "LibreBodoni";
   src: url('../fonts/LibreBodoni/LibreBodoni-VariableFont_wght.ttf');
@@ -15,4 +21,9 @@
 @font-face {
   font-family: "BodoniModa";
   src: url("../fonts/BodoniModa/BodoniModa-VariableFont_opsz_wght.ttf");
+}
+
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Mulish-VariableFont_wght.ttf");
 }
