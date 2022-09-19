@@ -2,7 +2,8 @@
 definePageMeta({
   layout: 'shop'
 })
-// TODO transition individual items with <transition
+// TODO transition individual items with <transition>
+// [ ] Provide direct links for searching within a field (e.g. Journals, Cases...)
 // transform ~= map 
 // pick ~= select (only for single objects)
 const d = await useFetch('/api/product', { 
@@ -29,11 +30,10 @@ const filteredProducts = computed(() => {
 </script>
 
 <template>
-<div>
-  <Searchbar class="border border-gray-400 block" v-model="inputValue" />
-  <h2>Shop here!!!</h2>
+<div class="">
+  <Searchbar class="border relative border-gray-400 block w-full px-2 py-1 font-bodoni focus:outline-none focus:ring-1 focus:border-green-300 ring-green-300" v-model="inputValue" />
 <!-- v-for to render list    -->
-  <div class="flex flex-row flex-wrap gap-2 px-4">
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 mx-auto gap-3 sm:gap-4 py-6">
     <card v-for="product in filteredProducts" :key="product.name" :product="product" />
   </div>
 </div>

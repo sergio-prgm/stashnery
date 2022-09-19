@@ -3,6 +3,7 @@ watchSmn()
 const open = ref(false)
 
 watch(() => useStore().value.length, (val, oldVal) => {
+  console.log(val)
   if (val > oldVal) open.value = !open.value
 })
 
@@ -20,13 +21,13 @@ const buttonStyles = 'py-1 px-2 bg-grey-100 font-semibold block'
   <button @click="open = !open" class="">Cart
     <span v-if="showCount" class="inline-block">
       <span class="text-sm font-sans leading-3 px-2 border-2 border-green-500 text-green-500 rounded-full flex items-center justify-center w-4 aspect-square">
-        {{ useStore().value.length }}
+        {{ useStore().value.filter(prod => prod.quantity > 0).length }}
       </span>
     </span>
   </button>
   <ClientOnly>
     <Teleport to="body">
-      <div v-show="open" @click.self="open = false" class="bg-slate-700/70  overflow-hidden backdrop-blur-sm w-full z-10 inset-0 absolute">
+      <div v-show="open" @click.self="open = false" class="bg-slate-500/40  overflow-hidden backdrop-blur-sm w-full z-10 inset-0 absolute">
       <Transition
         enter-active-class="transform duration-500 transition-all opacity-0 translate-x-40"
         enter-to-class="opacity-100 translate-x-0"

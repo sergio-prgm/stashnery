@@ -18,24 +18,28 @@ const colorTranslation = {
 
 const absImgPos = ref(0)
 const imgArr = Object.keys(product.value.images)
-const imgPos = computed(() => absImgPos.value % (imgArr.length))
+const imgPos = computed(() => Math.abs(absImgPos.value % (imgArr.length)))
 
 </script>
 
 <template>
 <div>
-<h1 class="">{{ product.name}}</h1>
-<p>{{ product.description }}</p>
-<div
+<h1 class="text-2xl font-bold mb-4">{{ product.name}}</h1>
+<p class="font-[Muli]">{{ product.description }}</p>
+<!-- <div
     v-if="!useStore().value.some(prod => prod.name === product.name)"
- >
+    class="flex justify-between w-full gap-4 items-center mt-4"
+ > -->
+  <div
+    class="flex justify-between w-full gap-4 items-center mt-4"
+  >
   <div class="flex justify-between w-20 items-baseline">
-    <button @click="quantity > 1 && quantity--" class="font-black text-xl">-</button>
-    <span>{{ quantity }}</span>
-    <button @click="quantity++" class="font-black text-xl">+</button>
+    <button @click="quantity > 1 && quantity--" class="font-black font-mono text-xl">-</button>
+    <span class="font-[Muli]">{{ quantity }}</span>
+    <button @click="quantity++" class="font-black text-xl font-mono">+</button>
   </div>
   <button 
-    class="block font-bold "
+    class="inline font-bold font-[Muli] py-2 px-4 bg-green-300 flex-grow"
     @click="() => {
       addProduct({ name: product.name, price: product.price, quantity: quantity })
     }"
@@ -43,7 +47,7 @@ const imgPos = computed(() => absImgPos.value % (imgArr.length))
     Add to cart
   </button>
   </div>
-  <p v-else >Already added to cart. Visit <Cart /> to make changes</p>
+  <!-- <p v-else >Already added to cart. Visit <Cart /> to make changes</p> -->
 <ul class="flex gap-2">
   <li v-for="color in product.variations.color" 
     :class="colorTranslation[color as keyof typeof colorTranslation]"
@@ -53,10 +57,10 @@ const imgPos = computed(() => absImgPos.value % (imgArr.length))
     {{ color }}</li>
 </ul>
 <img :src="product.images[imgArr[imgPos] as keyof object]" />
-<div class="flex justify-between">
-  <button @click="absImgPos--" class="font-black text-xl">&lt;</button>
-  <span>{{ imgPos }}</span>
-  <button @click="absImgPos++" class="font-black text-xl">></button>
+<div class="flex justify-between pt-3 max-w-xs mx-auto">
+  <button @click="absImgPos--" class="font-normal hover:text-green-500 hover:font-bold text-xl font-[Muli]">&lt;</button>
+  <span class="font-[Muli]">{{ imgPos }}</span>
+  <button @click="absImgPos++" class="font-normal hover:text-green-500 hover:font-bold text-xl font-[Muli]">></button>
 </div>
 </div>
 </template>

@@ -5,9 +5,8 @@ import FooterComponent from '~/components/Footer.vue';
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="flex flex-col min-h-screen px-3 sm:px-4">
     <HeaderComponent />
-    <h1 class="">Shop Layout</h1>
     <div class="mb-auto">
       <slot />
     </div>

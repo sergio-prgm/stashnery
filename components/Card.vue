@@ -14,6 +14,7 @@ interface Product {
     state: 'in-stock' | 'pending' | 'out-of-stock',
     'items-left'?: number 
   }
+  items: Array<{code: string, amount: number}>
 }
 
 const props = defineProps({
@@ -28,6 +29,16 @@ const availStyle = {
   'out-of-stock': 'text-red-600',
   'pending': 'text-amber-600',
 }
+
+const availability = computed(() => { 
+  const amounts = props.product.items.map(p => p.amount)
+  const inStock = Math.max(...amounts)
+  if (inStock > 0) {
+    return 'in-stock'
+  } else if (inStock === 0) {
+    return 'out-of-stock'
+  } else {return 'pending'}
+})
 /* 
 :class="product.availability.state === 'in-stock'
       ? 'border-green-500'
@@ -36,18 +47,22 @@ const availStyle = {
 </script>
 
 <template>
-    <NuxtLink :to="`/product/${product.name}`" class="w-2/5">
-  <article class="bg-stone-50 rounded p-3 w-full border-2 border-stone-600"
+<NuxtLink :to="`/product/${product.name}`" class="w-full  border border-stone-400">
+  <article class="font-['BodoniModa'] p-2 sm:p-3 w-full h-full"
     >
-    <img :src="product.images?.main" class="mx-auto" height="150" width="150"/>
-    <h3 class="font-bold text-xl">{{ product.name }}</h3>
-    <small class="block">{{ product.price }}€</small>
-    <small
-      class="font-medium"
-      :class="product && availStyle[product.availability.state]"
-    >
-      {{product.availability.state}}
-    </small>
+    <img :src="product.images?.main" class="mx-auto" height="200" width="200"/>
+    <div class="mx-auto flex flex-col sm:flex-row justify-between mt-2">
+      <h3 class="font-bold text-xl inline">{{ product.name }}</h3>
+      <div class="flex justify-between flex-row sm:flex-col items-center">
+        <small class="block leading-loose font-bodoni font-medium text-[16px]">{{ product.price }}€</small>
+        <small
+          class="font-bodoni font-medium leading-4 block"
+          :class="product && availStyle[availability]"
+        >
+          {{availability}}
+        </small>
+      </div>
+    </div>
   </article>
-    </NuxtLink>
+</NuxtLink>
 </template>
