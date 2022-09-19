@@ -20,7 +20,7 @@ export const watchSmn = () => {
     watchEffect(async () => {
       console.log('heleleel')
       if (useStore().value.some(p => p.name === 's')) {
-        useStore().value = await JSON.parse(window.localStorage.getItem('Cart') as string)
+        useStore().value = await JSON.parse(window.localStorage.getItem('Cart') as string) ?? []
       } else {
         await window.localStorage.setItem('Cart', JSON.stringify(useStore().value))
       }
