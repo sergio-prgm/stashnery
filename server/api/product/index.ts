@@ -1,4 +1,4 @@
-import { readFileSync} from 'fs'
+import { readFileSync, readdirSync} from 'fs'
 
 interface ProductDB {
   name: string
@@ -25,10 +25,13 @@ interface ProductDB {
 
 export default defineEventHandler((event) => {
   const data = readFileSync('./public/products.json', 'utf8')
+  const logogo = readdirSync('./')
 
   const {products, codeToName}: {products: ProductDB[], codeToName: object} = JSON.parse(data)
-  console.log('vvvv DATA vvv')
-  console.log('---------------------------------------')
+  // console.log('vvvv DATA vvv')
+  // console.log('---------------------------------------')
+  console.log(logogo)
+
 
   return products
 })
