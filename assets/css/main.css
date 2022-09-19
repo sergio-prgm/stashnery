@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "LibreBodoni";
+  src: url('../fonts/LibreBodoni/LibreBodoni-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url('../fonts/EBGaramond/EBGaramond-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: "BodoniModa";
+  src: url("../fonts/BodoniModa/BodoniModa-VariableFont_opsz_wght.ttf");
+}
