@@ -32,8 +32,8 @@
       "price": 12.99,
       "description": "Great quality materials and basic features for managing your busy life.",
       "images": {
-        "main": "/public/img/basic-front.webp",
-        "detail": "/public/img/basic-inside.webp"
+        "main": "/img/basic-front.webp",
+        "detail": "/img/basic-inside.webp"
       },
       "availability": 
         {
@@ -60,9 +60,9 @@
       "price": 16.99,
       "description": "The same great quality as out best seller Standard Journal but with twice the pages",
       "images": {
-        "main": "/public/img/plain-front.webp",
-        "detail": "/public/img/plain-inside.webp",
-        "extra": "/public/img/plain-first.webp"
+        "main": "/img/plain-front.webp",
+        "detail": "/img/plain-inside.webp",
+        "extra": "/img/plain-first.webp"
       },
       "availability": 
         {
@@ -85,8 +85,8 @@
       "price": 20.99,
       "description": "The best mateials and all of the features for all the power self improvers out there.",
       "images": {
-        "main": "/public/img/colorblock-front.webp",
-        "detail": "/public/img/colorblock-inside.webp"
+        "main": "/img/colorblock-front.webp",
+        "detail": "/img/colorblock-inside.webp"
       },
       "availability": 
         {
@@ -108,8 +108,8 @@
       "price": 12.99,
       "description": "Simple and elegant clear case to store your most precious writing instruments.",
       "images": {
-        "main": "/public/img/open-cpc.webp",
-        "detail": "/public/img/close-cpc.webp"
+        "main": "/img/open-cpc.webp",
+        "detail": "/img/close-cpc.webp"
       },
       "availability": 
         {
