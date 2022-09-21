@@ -7,7 +7,7 @@ interface ProductCart {
   price: number
 }
 
-// [ ] Maybe run encapsulate everything in a function??
+// [ ] Maybe encapsulate everything in a function??
 
 // const store: ProductCart[] = reactive([])
 export const useStore = () => useState<ProductCart[]>('store', () => ([{
@@ -15,10 +15,8 @@ export const useStore = () => useState<ProductCart[]>('store', () => ([{
 }]))
 
 export const watchSmn = () => {
-  console.log('help')
   if (typeof window !== 'undefined') {
     watchEffect(async () => {
-      console.log('heleleel')
       if (useStore().value.some(p => p.name === 's')) {
         useStore().value = await JSON.parse(window.localStorage.getItem('Cart') as string) ?? []
       } else {
@@ -31,8 +29,16 @@ export const watchSmn = () => {
 const productToModify = (prodName: string) => useStore().value.findIndex(prod => prod.name === prodName)
 
 export const addProduct = (product: ProductCart) => {
-  useStore().value.push(product)
+  const prodToAdd = useStore().value.find(prod => prod.name === product.name)
+  useOpen().value = true
+  if (prodToAdd) {
+    prodToAdd.quantity+= product.quantity
+  } else {
+    useStore().value.push(product)
+  }
 }
+
+export const useOpen = () => useState<boolean>('open', ()=> false)
 
 // Different colors/types of product have to be added as distinct products
 
@@ -49,19 +55,7 @@ export const decreaseQuantity = (name: string) => {
   quantity > 1 && useStore().value[productToModify(name)].quantity--
 }
 
-const localCart = (id: string): ProductCart[] => JSON.parse(window.localStorage.getItem(id) as string)
-
-// const watchStore = useStore()
-// watch(() => [...useStore.value], (store) => { console.log(store)})
-
-// const level = ref([1, 2, 3, 4])
-// watch(() => [...level.value], (current, old) => console.log(current))
-
-
-// watch(useStore().value, (currentStore, oldStore) => {
-// })
-
-export const totalProd = (name: string) => computed(() =>{
+export const totalProd = (name: string) => computed(() => {
   const product = useStore().value.find(prod => prod.name === name)!
   const total = product?.price * product?.quantity
   return Math.floor(total * 100) / 100
